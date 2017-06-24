@@ -85,8 +85,7 @@ var windowIsOffScreen = function(windowBounds: Electron.Rectangle): boolean {
 }
 
 const createMainWindow = () => {
-
-    const windowTitle = "Bot Framework Channel Emulator";
+    const windowTitle = "Bot Framework Emulator";
 
     const settings = getSettings();
     let initBounds: Electron.Rectangle = {

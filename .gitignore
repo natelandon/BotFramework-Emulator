@@ -6,3 +6,5 @@ app/
 .vscode/settings.json
 install/
 .npmrc
+cache/
+dist/

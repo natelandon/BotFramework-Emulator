@@ -1,0 +1,37 @@
+{
+    "asar": true,
+    "appId": "com.electron.botframework-emulator",
+    "productName": "Bot Framework Emulator",
+    "copyright": "Copyright © 2017 Microsoft Corporation",
+    "protocols": [
+        {
+            "name": "Bot Framework Emulator",
+            "role": "Viewer",
+            "schemes": [
+                "bfemulator"
+            ]
+        }
+    ],
+    "files": [
+        "**/*",
+        "!**/node_modules/*/{README.md,README,readme.md,readme,test}",
+        "!**/node_modules/.bin",
+        "!**/*.{o,hprof,orig,pyc,pyo,rbc}",
+        "!**/._*",
+        "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.idea,appveyor.yml,.travis.yml,circle.yml}",
+        "!.vscode${/*}",
+        "!doc${/*}",
+        "!src${/*}",
+        "!**/{tsconfig.json,gulpfile.js,README.md,getlicenses.cmd}",
+        "!**/node_modules/@types"
+    ],
+    "publish": {
+        "provider": "github"
+    },
+    "electronDownload": {
+        "cache": "${ELECTRON_CACHE}",
+        "mirror": "${ELECTRON_MIRROR}",
+        "verifyChecksum": false
+    },
+    "electronVersion": "1.7.2"
+}
