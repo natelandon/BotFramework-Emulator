@@ -51,6 +51,16 @@ export class WindowManager {
             let state = event.sender['checkoutState'];
             event.returnValue = state;
         });
+
+        Electron.globalShortcut.register("CommandOrControl+=", () => {
+            this.zoomIn();
+        });
+        Electron.globalShortcut.register("CommandOrControl+-", () => {
+            this.zoomOut();
+        });
+        Electron.globalShortcut.register("CommandOrControl+0", () => {
+            this.zoomTo(0);
+        });
     }
 
     public addMainWindow(window: Electron.BrowserWindow) {
@@ -81,11 +91,13 @@ export class WindowManager {
         zoomLevel = Math.min(zoomLevel + 1, 8);
         this.zoomTo(zoomLevel);
     }
+
     public zoomOut() {
         let zoomLevel = getSettings().windowState.zoomLevel;
         zoomLevel = Math.max(zoomLevel - 1, -4);
         this.zoomTo(zoomLevel);
     }
+
     public zoomTo(zoomLevel) {
         //triggering shortcut is global, check if a window is focused to get expected behavior
         if (this.mainWindow.isFocused() || this.windows.find(wind => wind.isFocused())) {

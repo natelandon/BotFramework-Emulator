@@ -33,7 +33,7 @@
 
 import * as Restify from 'restify';
 import * as HttpStatus from "http-status-codes";
-import { autoUpdater } from 'electron';
+import { appUpdater } from '../../appUpdater';
 import { getSettings } from '../../settings';
 import { emulator } from '../../emulator';
 import { RestServer } from '../../restServer';
@@ -255,9 +255,7 @@ export class EmulatorController {
 
     static quitAndInstall = (req: Restify.Request, res: Restify.Response, next: Restify.Next): any => {
         try {
-            if (autoUpdater) {
-                autoUpdater.quitAndInstall();
-            }
+            appUpdater.quitAndInstall();
             res.send(HttpStatus.OK);
             res.end();
         } catch (err) {

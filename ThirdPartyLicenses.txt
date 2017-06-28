@@ -5384,6 +5384,10 @@ whatwg-fetch@2.0.3 (MIT)
 	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 
+winreg@1.2.4 (BSD-2-Clause)
+
+	LICENSE file does not exist
+
 wrappy@1.0.2 (ISC)
 
 	The ISC License

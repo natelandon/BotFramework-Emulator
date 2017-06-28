@@ -40,6 +40,9 @@ import * as path from 'path';
 import * as log from './log';
 import { Emulator } from './emulator';
 import { WindowManager } from './windowManager';
+import * as squirrel from './squirrelStartupEventHandler';
+import { appUpdater } from './appUpdater';
+
 
 (process as NodeJS.EventEmitter).on('uncaughtException', (error: Error) => {
     console.error(error);
@@ -55,7 +58,7 @@ var onOpenUrl = function (event, url) {
     if (process.platform === 'darwin') {
         if (mainWindow && mainWindow.webContents) {
             // the app is already running, send a message containing the url to the renderer process
-            mainWindow.webContents.send('botemulator', url);
+            mainWindow.webContents.send('bfemulator', url);
         } else {
             // the app is not yet running, so store the url so the UI can request it later
             openUrls.push(url);
@@ -65,7 +68,7 @@ var onOpenUrl = function (event, url) {
 
 Electron.app.on('will-finish-launching', (event, args) => {
     Electron.ipcMain.on('getUrls', (event, arg) => {
-        openUrls.forEach(url => mainWindow.webContents.send('botemulator', url));
+        openUrls.forEach(url => mainWindow.webContents.send('bfemulator', url));
         openUrls = [];
     });
 
@@ -85,6 +88,10 @@ var windowIsOffScreen = function(windowBounds: Electron.Rectangle): boolean {
 }
 
 const createMainWindow = () => {
+    if(squirrel.handleStartupEvent()) {
+        return;
+    }
+
     const windowTitle = "Bot Framework Emulator";
 
     const settings = getSettings();
@@ -186,25 +193,19 @@ const createMainWindow = () => {
             });
         }
     });
-
-    Electron.globalShortcut.register("CommandOrControl+=", () => {
-        windowManager.zoomIn();
-    });
-    Electron.globalShortcut.register("CommandOrControl+-", () => {
-        windowManager.zoomOut();
-    });
-    Electron.globalShortcut.register("CommandOrControl+0", () => {
-        windowManager.zoomTo(0);
-    });
-
     mainWindow.once('ready-to-show', () => {
         mainWindow.webContents.setZoomLevel(settings.windowState.zoomLevel);
         mainWindow.show();
+
+        // Wait a few seconds then check for update.
+        setTimeout(() => {
+            appUpdater.checkForUpdate();
+        }, 2000);
     });
 
     let queryString = '';
-    if (process.argv[1] && process.argv[1].indexOf('botemulator') !== -1) {
-        // add a query string with the botemulator protocol handler content
+    if (process.argv[1] && process.argv[1].indexOf('bfemulator') !== -1) {
+        // add a query string with the bfemulator protocol handler content
         queryString = '?' + process.argv[1];
     }
 

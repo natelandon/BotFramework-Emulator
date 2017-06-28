@@ -34,8 +34,8 @@
 import { IBot, newBot } from '../types/botTypes';
 
 // BotEmulatorContext
-// Handles parsing of the botemulator:// protocol handler
-// To add more properties to the protocol, add properties to this class and to the setter object 
+// Handles parsing of the bfemulator:// protocol handler
+// To add more properties to the protocol, add properties to this class and to the setter object
 export class BotEmulatorContext {
     public endpoint: string;
     public appId: string;
@@ -45,7 +45,7 @@ export class BotEmulatorContext {
     public emulatorPort: string;
     public serviceUrl: string;
 
-    private static _propertySetters: any = 
+    private static _propertySetters: any =
     {
         'endpoint': (context: BotEmulatorContext, x: string) => { context.endpoint = x; },
         'appid': (context: BotEmulatorContext, x: string) => { context.appId = x; },
@@ -63,7 +63,7 @@ export class BotEmulatorContext {
             decodedUri = decodedUri.substr(1);
         }
 
-        if (decodedUri.startsWith('botemulator://')) {
+        if (decodedUri.startsWith('bfemulator://')) {
             decodedUri = decodedUri.substr(14);
 
             decodedUri.split('&').forEach(p => {
@@ -86,7 +86,7 @@ export class BotEmulatorContext {
 
     public updateBot(bot: IBot): IBot {
         return Object.assign({}, bot, {
-            botUrl: this.endpoint, 
+            botUrl: this.endpoint,
             locale: this.locale,
             msaAppId: this.appId,
             msaPassword: this.appPassword });

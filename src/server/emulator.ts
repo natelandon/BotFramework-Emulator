@@ -40,6 +40,8 @@ import { ConversationManager } from './conversationManager';
 import * as Settings from './settings';
 import * as Electron from 'electron';
 import { windowManager, mainWindow } from './main';
+import { appUpdater } from './appUpdater';
+import * as log from './log';
 
 
 interface IQueuedMessage {
@@ -85,6 +87,23 @@ export class Emulator {
         Electron.ipcMain.on('refreshSpeechToken', (event, args: string) => {
             // args is the conversation id
             this.getSpeechToken(event, args, true);
+        });
+
+        // autoUpdater events
+        appUpdater.on('checking-for-update', () => {
+            log.info("Checking for update...");
+        });
+        appUpdater.on('up-to-date', () => {
+            log.info("Application is up to date.");
+        });
+        appUpdater.on('update-available', () => {
+            log.info("An update is available.", log.makeCommandLink("Download", 'autoUpdater.downloadUpdate', "Download the update"), "it now.");
+        });
+        appUpdater.on('ready-to-install', () => {
+            log.info("Update is ready to install.", log.makeCommandLink("Restart", 'autoUpdater.quitAndInstall', "Quit and install the update"), "the application to update.");
+        });
+        appUpdater.on('failed', (err) => {
+            log.info("Failed to check for update.");
         });
     }
 

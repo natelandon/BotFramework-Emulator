@@ -125,7 +125,7 @@ export class MainView extends React.Component<{}, {}> {
 
     componentDidMount() {
         // listen to future protocol handler invocations and update the emulator's active bot when this happens
-        ipcRenderer.on('botemulator', (event: any, message: any) => {
+        ipcRenderer.on('bfemulator', (event: any, message: any) => {
             console.log('received url: ' + message);
             this.shouldWarnOfBotChange = true;
             this.setBot(message);
