@@ -195,6 +195,7 @@ function publishFiles(filelist) {
         return publisher.upload(file)
             .catch((err) => {
                 errorlist.push(err.response ? `Failed to upload ${file}, http status code ${err.response.statusCode}` : err);
+                return Promise.resolve();
             });
     });
 
