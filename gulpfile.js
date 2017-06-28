@@ -82,7 +82,7 @@ function replaceEnvironmentVar(str, name, defaultValue = undefined) {
     return str.replace(new RegExp('\\${' + name + '}', 'g'), value);
 }
 
-function replaceEnvironmentVars(obj) {
+function replacePackageEnvironmentVars(obj) {
     let str = JSON.stringify(obj);
     str = replaceEnvironmentVar(str, "ELECTRON_MIRROR");
     return JSON.parse(str);
@@ -98,7 +98,7 @@ gulp.task('package:windows', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     var config = Object.assign({},
-        replaceEnvironmentVars(require('./build/build-common.json')),
+        replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-windows.json'));
     return builder.build({
         targets: builder.Platform.WINDOWS.createTarget(["nsis", "zip"], builder.Arch.ia32, builder.Arch.x64),
@@ -116,7 +116,7 @@ gulp.task('package:squirrel.windows', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     var config = Object.assign({},
-        replaceEnvironmentVars(require('./build/build-common.json')),
+        replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-squirrel.windows.json'));
     return builder.build({
         targets: builder.Platform.WINDOWS.createTarget(["squirrel"], builder.Arch.x64),
@@ -139,7 +139,7 @@ gulp.task('package:mac', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     var config = Object.assign({},
-        replaceEnvironmentVars(require('./build/build-common.json')),
+        replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-mac.json'));
     return builder.build({
         targets: builder.Platform.MAC.createTarget(["dmg", "zip"]),
@@ -157,7 +157,7 @@ gulp.task('package:linux', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     var config = Object.assign({},
-        replaceEnvironmentVars(require('./build/build-common.json')),
+        replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-linux.json'));
     return builder.build({
         targets: builder.Platform.LINUX.createTarget(["deb", "AppImage"], builder.Arch.ia32, builder.Arch.x64),
@@ -195,7 +195,6 @@ function publishFiles(filelist) {
         return publisher.upload(file)
             .catch((err) => {
                 errorlist.push(err.response ? `Failed to upload ${file}, http status code ${err.response.statusCode}` : err);
-                return Promise.resolve();
             });
     });
 
