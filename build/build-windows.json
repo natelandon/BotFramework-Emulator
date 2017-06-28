@@ -4,9 +4,5 @@
         "perMachine": false,
         "allowElevation": false,
         "packElevateHelper": false
-    },
-    "squirrelWindows": {
-      "loadingGif": "build/bf-splash.gif",
-      "remoteReleases": "https://github.com/Microsoft/BotFramework-Emulator"
     }
 }

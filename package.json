@@ -1,6 +1,6 @@
 {
   "name": "botframework-emulator",
-  "version": "3.5.31-alpha",
+  "version": "3.5.31",
   "description": "Emulator for the Microsoft Bot Framework. Allows developers to test and debug their bots on localhost.",
   "main": "./app/server/main.js",
   "scripts": {
@@ -37,10 +37,12 @@
     "@types/react-split-pane": "0.1.5",
     "@types/request": "0.0.31",
     "@types/restify": "2.0.38",
+    "ajv": "5.2.0",
     "del": "2.2.2",
     "electron": "1.7.2",
-    "electron-builder": "19.8.0",
-    "electron-builder-squirrel-windows": "19.8.0",
+    "electron-builder": "19.10.0",
+    "electron-builder-http": "19.2.3",
+    "electron-builder-squirrel-windows": "19.10.0",
     "electron-react-devtools": "0.4.0",
     "event-stream": "3.3.4",
     "glob": "7.1.1",
@@ -64,12 +66,13 @@
     "vinyl-fs": "2.4.4",
     "vinyl-source-stream": "1.1.0"
   },
-  "dependencies": { 
+  "dependencies": {
     "async": "2.1.4",
     "base64url": "2.0.0",
     "botframework-webchat": "0.10.6",
     "electron-debug": "1.1.0",
     "electron-proxy-agent": "1.0.2",
+    "electron-updater": "2.4.2",
     "es6-shim": "0.35.2",
     "formidable": "1.0.17",
     "http-status-codes": "1.0.6",

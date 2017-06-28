@@ -1,0 +1,6 @@
+{
+    "provider": "github",
+    "owner": "Microsoft",
+    "repo": "BotFramework-Emulator",
+    "token": "${GH_TOKEN}"
+}

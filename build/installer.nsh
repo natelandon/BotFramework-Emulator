@@ -1,8 +1,8 @@
 !macro customInit
-    ; Attempt to uninstall older, squirrel-based emulator.
+    ; Attempt to uninstall older, squirrel-based app.
     DetailPrint "Uninstall Squirrel-based version of application"
-    IfFileExists "..\..\botframework\Update.exe" 0 noSquirrel
-    nsExec::Exec "$\"..\..\botframework\Update.exe$\" --uninstall -s"
+    IfFileExists "$INSTDIR\..\..\botframework\Update.exe" 0 noSquirrel
+    nsExec::Exec '"$INSTDIR\..\..\botframework\Update.exe" --uninstall -s'
     noSquirrel:
 !macroend
 
@@ -15,4 +15,9 @@
     WriteRegStr HKCU "SOFTWARE\Classes\bfemulator\shell" "" ""
     WriteRegStr HKCU "SOFTWARE\Classes\bfemulator\shell\open" "" ""
     WriteRegStr HKCU "SOFTWARE\Classes\bfemulator\shell\open\command" "" `"$INSTDIR\${APP_EXECUTABLE_FILENAME}" "%1"`
+!macroend
+
+!macro customUninstall
+    DetailPrint "Unregister bfemulator URI Handler"
+    DeleteRegKey HKCU "SOFTWARE\Classes\bfemulator"
 !macroend
