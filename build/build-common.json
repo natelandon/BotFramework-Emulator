@@ -29,7 +29,7 @@
         "provider": "github"
     },
     "electronDownload": {
-        "cache": "${ELECTRON_CACHE}",
+        "cache": "./cache",
         "mirror": "${ELECTRON_MIRROR}",
         "verifyChecksum": false
     },
