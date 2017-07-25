@@ -254,9 +254,17 @@ function getFileList(platform, options = {}) {
         break;
 
         case "mac":
+            filelist.push(`${options.path}latest-mac.yml`);
+            filelist.push(`${options.path}latest-mac.json`);
+            filelist.push(`${options.path}${options.basename}-${options.version}-mac.zip`);
+            filelist.push(`${options.path}${options.basename}-${options.version}.dmg`);
         break;
 
         case "linux":
+            filelist.push(`${options.path}${options.basename}-${options.version}-i386.AppImage`);
+            filelist.push(`${options.path}${options.basename}-${options.version}-x86_64.AppImage`);
+            filelist.push(`${options.path}${options.basename}_${options.version}_i386.deb`);
+            filelist.push(`${options.path}${options.basename}_${options.version}_amd64.deb`);
         break;
     }
     return filelist;
