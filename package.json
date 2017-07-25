@@ -18,7 +18,11 @@
     "bot",
     "chatbot"
   ],
-  "author": "Microsoft Corp.",
+  "author": {
+      "name": "Microsoft Corporation",
+      "email": "email@example.com",
+      "url": "https://aka.ms/botemulator"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Microsoft/botframework-emulator/issues"
