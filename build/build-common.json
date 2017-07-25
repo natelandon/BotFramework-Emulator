@@ -31,5 +31,5 @@
         "verifyChecksum": false
     },
     "electronVersion": "1.7.4",
-    "publish": "never"
+    "publish": null
 }
