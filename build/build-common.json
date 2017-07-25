@@ -33,5 +33,5 @@
         "mirror": "${ELECTRON_MIRROR}",
         "verifyChecksum": false
     },
-    "electronVersion": "1.7.2"
+    "electronVersion": "1.7.4"
 }
