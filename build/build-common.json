@@ -30,5 +30,6 @@
         "mirror": "${ELECTRON_MIRROR}",
         "verifyChecksum": false
     },
-    "electronVersion": "1.7.4"
+    "electronVersion": "1.7.4",
+    "publish": "never"
 }
