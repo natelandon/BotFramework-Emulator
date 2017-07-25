@@ -1,7 +1,7 @@
 {
   "name": "botframework-emulator",
   "version": "3.5.31",
-  "description": "Emulator for the Microsoft Bot Framework. Allows developers to test and debug their bots on localhost.",
+  "description": "Emulator for the Microsoft Bot Framework. Allows developers to test and debug bots on localhost.",
   "main": "./app/server/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
