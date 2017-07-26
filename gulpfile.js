@@ -117,7 +117,7 @@ gulp.task('package:squirrel.windows', function() {
 });
 
 //----------------------------------------------------------------------------
-gulp.task('package:mac', function() {
+gulp.task('package:mac:binaries', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
@@ -131,38 +131,39 @@ gulp.task('package:mac', function() {
             .pipe(rename(function (path) {
                 path.basename = setReleaseFilename(path.basename);
             }))
-            .pipe(gulp.dest('./dist'))
-            .then(() => {
-                var asarIntegrity = require('asar-integrity');
-                const releaseDate = new Date().toISOString();
-                const releaseZip = `botframework-emulator-${pjson.version}-mac.zip`;
-                const releaseHash = asarIntegrity.hashFile(releaseZip, "sha512", "base64");
-
-                // Write ./dist/latest-mac.json
-                var fsp = require('fs-extra-p');
-                const jsonStream = source('latest-mac.json');
-                const jsonInfo = {
-                    version: pjson.version,
-                    releaseDate: releaseDate,
-                    url: `https://github.com/Microsoft/BotFramework-Emulator/releases/v${pjson.version}/${releaseZip}`
-                };
-                const jsonStr = JSON.stringify(jsonInfo, null, 2);
-                fsp.outputJsonSync('./dist/lastest-mac.json', jsonInfo);
-
-                // Write ./dist/latest-mac.yml
-                var yaml = require('js-yaml');
-                const ymlInfo = {
-                    version: pjson.version,
-                    releaseDate: releaseDate,
-                    githubArtifactName: releaseZip,
-                    path: releaseZip,
-                    sha512: releaseHash
-                };
-                const ymlStr = yaml.safeDump(ymlInfo);
-                fsp.writeFileSync('./dist/latest-mac.yml', ymlStr)
-            });
+            .pipe(gulp.dest('./dist'));
     });
 });
+gulp.task('package:mac:metadata', ['package:mac:binaries'], function() {
+    var asarIntegrity = require('asar-integrity');
+    var fsp = require('fs-extra-p');
+    const releaseDate = new Date().toISOString();
+    const releaseZip = `botframework-emulator-${pjson.version}-mac.zip`;
+    const releaseHash = asarIntegrity.hashFile(`./dist/${releaseZip}`, 'sha512', 'base64');
+
+    // Write ./dist/latest-mac.json
+    const jsonInfo = {
+        version: pjson.version,
+        releaseDate: releaseDate,
+        url: `https://github.com/Microsoft/BotFramework-Emulator/releases/v${pjson.version}/${releaseZip}`
+    };
+    const jsonStr = JSON.stringify(jsonInfo, null, 2);
+    fsp.outputJsonSync('./dist/lastest-mac.json', jsonInfo);
+
+    // Write ./dist/latest-mac.yml
+    var yaml = require('js-yaml');
+    const ymlInfo = {
+        version: pjson.version,
+        releaseDate: releaseDate,
+        githubArtifactName: releaseZip,
+        path: releaseZip,
+        sha512: releaseHash
+    };
+    const ymlStr = yaml.safeDump(ymlInfo);
+    fsp.writeFileSync('./dist/latest-mac.yml', ymlStr);
+});
+
+gulp.task('package:mac', ['package:mac:metadata']);
 
 //----------------------------------------------------------------------------
 gulp.task('package:linux', function() {
