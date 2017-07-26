@@ -133,6 +133,7 @@ gulp.task('package:mac', function() {
             }))
             .pipe(gulp.dest('./dist'));
         // Write ./dist/latest-mac.json
+        var source = require('vinyl-source-stream');
         const stream = source('latest-mac.json');
         const info = {
             version: pjson.version,
