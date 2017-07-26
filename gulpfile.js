@@ -310,7 +310,7 @@ function replacePackageEnvironmentVars(obj) {
 //----------------------------------------------------------------------------
 function replacePublishEnvironmentVars(obj) {
     let str = JSON.stringify(obj);
-    str = replaceEnvironmentVar(str, "GH_TOKEN");
+    str = replaceEnvironmentVar(str, "GITHUB_TOKEN");
     return JSON.parse(str);
 }
 
