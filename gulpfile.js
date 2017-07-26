@@ -132,6 +132,17 @@ gulp.task('package:mac', function() {
                 path.basename = setReleaseFilename(path.basename);
             }))
             .pipe(gulp.dest('./dist'));
+        // Write ./dist/latest-mac.json
+        const stream = source('latest-mac.json');
+        const info = {
+            version: pjson.version,
+            releaseDate: new Date().toISOString(),
+            url: `https://github.com/Microsoft/BotFramework-Emulator/releases/v${pjson.version}/botframework-emulator-${pjson.version}-mac.zip`
+        };
+        const json = JSON.stringify(info, null, 2);
+        stream.write(json);
+        stream.end();
+        stream.pipe(gulp.dest('./dist'));
     });
 });
 
