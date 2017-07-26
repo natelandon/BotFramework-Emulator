@@ -275,6 +275,7 @@ function setReleaseFilename(filename, options = {}) {
     options = Object.assign({}, {
         lowerCase: true,
         replaceWhitespace: true,
+        fixBasename: true,
         replaceName: false,
         srcName: null,
         dstName: null
@@ -288,6 +289,9 @@ function setReleaseFilename(filename, options = {}) {
     }
     if (options.replaceWhitespace) {
         filename = filename.replace(/\s/g, '-');
+    }
+    if (options.fixBasename) {
+        filename = filename.replace(/bot[-|\s]framework/ig, 'botframework');
     }
     return filename;
 }
