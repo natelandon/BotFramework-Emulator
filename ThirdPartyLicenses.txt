@@ -1,4 +1,4 @@
-@types/react@15.0.38 (MIT)
+@types/react@15.0.39 (MIT)
 
 	    MIT License
 	
@@ -1225,7 +1225,7 @@ ecdsa-sig-formatter@1.0.9 (Apache-2.0)
 	   limitations under the License.
 	
 
-electron-builder-http@19.2.3 (MIT)
+electron-builder-http@19.7.2 (MIT)
 
 	LICENSE file does not exist
 
