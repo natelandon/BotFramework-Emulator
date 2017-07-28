@@ -74,7 +74,45 @@ gulp.task('get-licenses', function () {
 //============================================================================
 
 //----------------------------------------------------------------------------
-gulp.task('package:windows', function() {
+function hashFileAsync(filename, algo = 'sha512', encoding='base64') {
+    var asarIntegrity = require('asar-integrity');
+    return asarIntegrity.hashFile(filename, algo, encoding);
+}
+
+//----------------------------------------------------------------------------
+function writeYamlMetadataFile(releaseFilename, yamlFilename, fileHash, releaseDate, extra = {}) {
+    var fsp = require('fs-extra-p');
+    var yaml = require('js-yaml');
+
+    const ymlInfo = {
+        version: pjson.version,
+        releaseDate: releaseDate,
+        githubArtifactName: releaseFilename,
+        path: releaseFilename,
+        sha512: fileHash
+    };
+    const obj = Object.assign({}, ymlInfo, extra);
+    const ymlStr = yaml.safeDump(obj);
+    fsp.writeFileSync(`./dist/${yamlFilename}`, ymlStr);
+}
+
+//----------------------------------------------------------------------------
+function writeJsonMetadataFile(releaseFilename, jsonFilename, releaseDate) {
+    var fsp = require('fs-extra-p');
+
+    const jsonInfo = {
+        version: pjson.version,
+        releaseDate: releaseDate,
+        url: `https://github.com/Microsoft/BotFramework-Emulator/releases/v${pjson.version}/${releaseFilename}`
+    };
+    fsp.outputJsonSync(`./dist/${jsonFilename}`, jsonInfo, { spaces: 2 });
+}
+
+//============================================================================
+// PACKAGE:WINDOWS
+
+//----------------------------------------------------------------------------
+gulp.task('package:windows:binaries', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
@@ -91,6 +129,25 @@ gulp.task('package:windows', function() {
             .pipe(gulp.dest('./dist'));
     });
 });
+
+//----------------------------------------------------------------------------
+gulp.task('package:windows:metadata', ['package:windows:binaries'], function() {
+    const releaseFilename = `botframework-emulator-setup-${pjson.version}.exe`;
+    const sha512 = hashFileAsync(`./dist/${releaseFilename}`);
+    const sha2 = hashFileAsync(`./dist/${releaseFilename}`, 'sha256', 'hex');
+    const releaseDate = new Date().toISOString();
+
+    return Promise.all([sha512, sha2])
+        .then((values) => {
+            writeYamlMetadataFile(releaseFilename, 'latest.yml', values[0], releaseDate, { sha2: values[1] });
+        });
+});
+
+//----------------------------------------------------------------------------
+gulp.task('package:windows', ['package:windows:metadata']);
+
+//============================================================================
+// PACKAGE:SQUIRREL.WINDOWS
 
 //----------------------------------------------------------------------------
 gulp.task('package:squirrel.windows', function() {
@@ -116,6 +173,9 @@ gulp.task('package:squirrel.windows', function() {
     });
 });
 
+//============================================================================
+// PACKAGE:MAC
+
 //----------------------------------------------------------------------------
 gulp.task('package:mac:binaries', function() {
     var rename = require('gulp-rename');
@@ -134,37 +194,24 @@ gulp.task('package:mac:binaries', function() {
             .pipe(gulp.dest('./dist'));
     });
 });
+
+//----------------------------------------------------------------------------
 gulp.task('package:mac:metadata', ['package:mac:binaries'], function() {
-    var asarIntegrity = require('asar-integrity');
-    var fsp = require('fs-extra-p');
+    const releaseFilename = `botframework-emulator-${pjson.version}-mac.zip`;
+    const releaseHash = hashFile(`./dist/${releaseFilename}`);
     const releaseDate = new Date().toISOString();
-    const releaseZip = `botframework-emulator-${pjson.version}-mac.zip`;
-    const releaseHash = asarIntegrity.hashFile(`./dist/${releaseZip}`, 'sha512', 'base64');
 
-    // Write ./dist/latest-mac.json
-    const jsonInfo = {
-        version: pjson.version,
-        releaseDate: releaseDate,
-        url: `https://github.com/Microsoft/BotFramework-Emulator/releases/v${pjson.version}/${releaseZip}`
-    };
-    fsp.outputJsonSync('./dist/latest-mac.json', jsonInfo, { spaces: 2 });
-
-    // Write ./dist/latest-mac.yml
-    var yaml = require('js-yaml');
-    return releaseHash.then((sha512) => {
-        const ymlInfo = {
-            version: pjson.version,
-            releaseDate: releaseDate,
-            githubArtifactName: releaseZip,
-            path: releaseZip,
-            sha512: sha512
-        };
-        const ymlStr = yaml.safeDump(ymlInfo);
-        fsp.writeFileSync('./dist/latest-mac.yml', ymlStr);
+    writeJsonMetadataFile(releaseFilename, 'latest-mac.json', releaseDate);
+    return releaseHash.then((hashValue) => {
+        writeYamlMetadataFile(releaseFilename, 'latest-mac.yml', hashValue, releaseDate);
     });
 });
 
+//----------------------------------------------------------------------------
 gulp.task('package:mac', ['package:mac:metadata']);
+
+//============================================================================
+// PACKAGE:LINUX
 
 //----------------------------------------------------------------------------
 gulp.task('package:linux', function() {
