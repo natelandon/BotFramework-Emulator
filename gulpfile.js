@@ -147,20 +147,21 @@ gulp.task('package:mac:metadata', ['package:mac:binaries'], function() {
         releaseDate: releaseDate,
         url: `https://github.com/Microsoft/BotFramework-Emulator/releases/v${pjson.version}/${releaseZip}`
     };
-    const jsonStr = JSON.stringify(jsonInfo, null, 2);
-    fsp.outputJsonSync('./dist/lastest-mac.json', jsonInfo);
+    fsp.outputJsonSync('./dist/latest-mac.json', jsonInfo, { spaces: 2 });
 
     // Write ./dist/latest-mac.yml
     var yaml = require('js-yaml');
-    const ymlInfo = {
-        version: pjson.version,
-        releaseDate: releaseDate,
-        githubArtifactName: releaseZip,
-        path: releaseZip,
-        sha512: releaseHash
-    };
-    const ymlStr = yaml.safeDump(ymlInfo);
-    fsp.writeFileSync('./dist/latest-mac.yml', ymlStr);
+    return releaseHash.then((sha512) => {
+        const ymlInfo = {
+            version: pjson.version,
+            releaseDate: releaseDate,
+            githubArtifactName: releaseZip,
+            path: releaseZip,
+            sha512: sha512
+        };
+        const ymlStr = yaml.safeDump(ymlInfo);
+        fsp.writeFileSync('./dist/latest-mac.yml', ymlStr);
+    });
 });
 
 gulp.task('package:mac', ['package:mac:metadata']);
