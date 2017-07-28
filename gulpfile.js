@@ -198,7 +198,7 @@ gulp.task('package:mac:binaries', function() {
 //----------------------------------------------------------------------------
 gulp.task('package:mac:metadata', ['package:mac:binaries'], function() {
     const releaseFilename = `botframework-emulator-${pjson.version}-mac.zip`;
-    const releaseHash = hashFile(`./dist/${releaseFilename}`);
+    const releaseHash = hashFileAsync(`./dist/${releaseFilename}`);
     const releaseDate = new Date().toISOString();
 
     writeJsonMetadataFile(releaseFilename, 'latest-mac.json', releaseDate);
