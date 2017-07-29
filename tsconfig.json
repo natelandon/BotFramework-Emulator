@@ -21,7 +21,8 @@
         "app",
         "build",
         "dist",
-        "cache"
+        "cache",
+        "install"
     ],
     "compileOnSave": false
 }

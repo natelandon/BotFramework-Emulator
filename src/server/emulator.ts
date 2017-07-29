@@ -91,19 +91,19 @@ export class Emulator {
 
         // autoUpdater events
         appUpdater.on('checking-for-update', () => {
-            log.info("Checking for update...");
+            log.debug("Checking for update...");
         });
         appUpdater.on('up-to-date', () => {
-            log.info("Application is up to date.");
+            log.debug("Application is up to date.");
         });
         appUpdater.on('update-available', () => {
-            log.info("An update is available.", log.makeCommandLink("Download", 'autoUpdater.downloadUpdate', "Download the update"), "it now.");
+            log.debug("An update is available.", log.makeCommandLink("Download", 'autoUpdater.downloadUpdate', "Download the update"), "it now.");
         });
         appUpdater.on('ready-to-install', () => {
-            log.info("Update is ready to install.", log.makeCommandLink("Restart", 'autoUpdater.quitAndInstall', "Quit and install the update"), "the application to update.");
+            log.debug("Update is ready to install.", log.makeCommandLink("Restart", 'autoUpdater.quitAndInstall', "Quit and install the update"), "the application to update.");
         });
         appUpdater.on('failed', (err) => {
-            log.info("Failed to check for update.");
+            log.debug("Failed to check for update.");
         });
     }
 
