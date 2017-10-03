@@ -1,4 +1,4 @@
-@types/react@15.0.39 (MIT)
+@types/react@15.0.38 (MIT)
 
 	    MIT License
 	
@@ -100,6 +100,56 @@ argparse@1.0.9 (MIT)
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
+	
+
+array-back@1.0.4 (MIT)
+
+	The MIT License (MIT)
+	
+	Copyright (c) 2015-16 Lloyd Brookes <75pound@gmail.com>
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+	
+
+array-back@2.0.0 (MIT)
+
+	The MIT License (MIT)
+	
+	Copyright (c) 2015-17 Lloyd Brookes <75pound@gmail.com>
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
 	
 
 asap@2.0.6 (MIT)
@@ -430,7 +480,7 @@ boom@2.10.1 (BSD-3-Clause)
 	
 	The complete list of contributors can be found at: https://github.com/hapijs/boom/graphs/contributors
 
-botframework-directlinejs@0.9.8 (MIT)
+botframework-directlinejs@0.9.11 (MIT)
 
 	The MIT License (MIT)
 	
@@ -456,7 +506,7 @@ botframework-directlinejs@0.9.8 (MIT)
 	
 	
 
-botframework-webchat@0.11.0 (MIT)
+botframework-webchat@0.11.2 (MIT)
 
 	The MIT License (MIT)
 	
@@ -482,7 +532,7 @@ botframework-webchat@0.11.0 (MIT)
 	
 	
 
-bowser@1.7.1 (MIT)
+bowser@1.7.3 (MIT)
 
 	Copyright 2015, Dustin Diaz (the "Original Author")
 	All rights reserved.
@@ -545,7 +595,7 @@ buffer-equal-constant-time@1.0.1 (BSD-3-Clause)
 	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	
 
-bunyan@1.8.10 (MIT)
+bunyan@1.8.12 (MIT)
 
 	# This is the MIT license
 	
@@ -632,6 +682,31 @@ chalk@1.1.3 (MIT)
 combined-stream@1.0.5 (MIT)
 
 	LICENSE file does not exist
+
+command-line-args@4.0.7 (MIT)
+
+	The MIT License (MIT)
+	
+	Copyright (c) 2014-17 Lloyd Brookes <75pound@gmail.com>
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+	
 
 commander@2.11.0 (MIT)
 
@@ -750,39 +825,29 @@ core-util-is@1.0.2 (MIT)
 	IN THE SOFTWARE.
 	
 
-create-react-class@15.6.0 (BSD-3-Clause)
+create-react-class@15.6.2 (MIT)
 
-	BSD License
-	
-	For React software
+	MIT License
 	
 	Copyright (c) 2013-present, Facebook, Inc.
-	All rights reserved.
 	
-	Redistribution and use in source and binary forms, with or without modification,
-	are permitted provided that the following conditions are met:
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 	
-	 * Redistributions of source code must retain the above copyright notice, this
-	   list of conditions and the following disclaimer.
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
 	
-	 * Redistributions in binary form must reproduce the above copyright notice,
-	   this list of conditions and the following disclaimer in the documentation
-	   and/or other materials provided with the distribution.
-	
-	 * Neither the name Facebook nor the names of its contributors may be used to
-	   endorse or promote products derived from this software without specific
-	   prior written permission.
-	
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-	ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-	ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
 	
 
 cryptiles@2.0.5 (BSD-3-Clause)
@@ -837,7 +902,7 @@ csv-generate@0.0.6 (BSD-3-Clause)
 	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	
 
-csv-parse@1.2.0 (BSD-3-Clause)
+csv-parse@1.2.3 (BSD-3-Clause)
 
 	Software License Agreement (BSD License)
 	========================================
@@ -957,7 +1022,7 @@ data-uri-to-buffer@0.0.4 (MIT)
 
 	LICENSE file does not exist
 
-debug@2.6.8 (MIT)
+debug@2.6.9 (MIT)
 
 	(The MIT License)
 	
@@ -992,7 +1057,7 @@ dtrace-provider@0.6.0 (undefined)
 
 	LICENSE file does not exist
 
-dtrace-provider@0.8.3 (BSD-2-Clause)
+dtrace-provider@0.8.5 (BSD-2-Clause)
 
 	LICENSE file does not exist
 
@@ -1459,29 +1524,6 @@ extend@3.0.1 (MIT)
 	
 	
 
-extsprintf@1.0.2 (undefined)
-
-	Copyright (c) 2012, Joyent, Inc. All rights reserved.
-	
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-	
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE
-	
-
 extsprintf@1.2.0 (MIT)
 
 	Copyright (c) 2012, Joyent, Inc. All rights reserved.
@@ -1528,44 +1570,58 @@ extsprintf@1.3.0 (MIT)
 	THE SOFTWARE
 	
 
-fbjs@0.8.12 (BSD-3-Clause)
+fbjs@0.8.16 (MIT)
 
-	BSD License
-	
-	For fbjs software
+	MIT License
 	
 	Copyright (c) 2013-present, Facebook, Inc.
-	All rights reserved.
 	
-	Redistribution and use in source and binary forms, with or without modification,
-	are permitted provided that the following conditions are met:
+	Permission is hereby granted, free of charge, to any person obtaining a copy of
+	this software and associated documentation files (the "Software"), to deal in
+	the Software without restriction, including without limitation the rights to
+	use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+	the Software, and to permit persons to whom the Software is furnished to do so,
+	subject to the following conditions:
 	
-	 * Redistributions of source code must retain the above copyright notice, this
-	   list of conditions and the following disclaimer.
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
 	
-	 * Redistributions in binary form must reproduce the above copyright notice,
-	   this list of conditions and the following disclaimer in the documentation
-	   and/or other materials provided with the distribution.
-	
-	 * Neither the name Facebook nor the names of its contributors may be used to
-	   endorse or promote products derived from this software without specific
-	   prior written permission.
-	
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-	ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-	ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+	FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+	IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 
 file-uri-to-path@0.0.2 (MIT)
 
 	LICENSE file does not exist
+
+find-replace@1.0.3 (MIT)
+
+	The MIT License (MIT)
+	
+	Copyright (c) 2015-17 Lloyd Brookes <75pound@gmail.com>
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+	
 
 forever-agent@0.6.1 (Apache-2.0)
 
@@ -1665,7 +1721,7 @@ fs-extra-p@4.4.0 (MIT)
 	SOFTWARE.
 	
 
-fs-extra@4.0.0 (MIT)
+fs-extra@4.0.2 (MIT)
 
 	(The MIT License)
 	
@@ -2059,7 +2115,7 @@ hyphenate-style-name@1.0.2 (BSD-3-Clause)
 	
 	
 
-iconv-lite@0.4.18 (MIT)
+iconv-lite@0.4.19 (MIT)
 
 	Copyright (c) 2011 Alexander Shtuchkin
 	
@@ -2184,7 +2240,7 @@ ip@1.1.5 (MIT)
 
 	LICENSE file does not exist
 
-is-my-json-valid@2.16.0 (MIT)
+is-my-json-valid@2.16.1 (MIT)
 
 	The MIT License (MIT)
 	
@@ -2493,7 +2549,7 @@ json-stringify-safe@5.0.1 (ISC)
 	IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 	
 
-jsonfile@3.0.1 (MIT)
+jsonfile@4.0.0 (MIT)
 
 	(The MIT License)
 	
@@ -2562,7 +2618,7 @@ jsonwebtoken@7.2.1 (MIT)
 	SOFTWARE.
 	
 
-jsprim@1.4.0 (MIT)
+jsprim@1.4.1 (MIT)
 
 	Copyright (c) 2012, Joyent, Inc. All rights reserved.
 	
@@ -2965,7 +3021,7 @@ mdurl@1.0.1 (MIT)
 	IN THE SOFTWARE.
 	
 
-microsoft-adaptivecards@0.6.0 (MIT)
+microsoft-adaptivecards@0.6.1 (MIT)
 
 	LICENSE file does not exist
 
@@ -2994,7 +3050,7 @@ microsoft-speech-browser-sdk@0.0.1 (ISC)
 	    SOFTWARE
 	
 
-mime-db@1.27.0 (MIT)
+mime-db@1.30.0 (MIT)
 
 	
 	The MIT License (MIT)
@@ -3020,7 +3076,7 @@ mime-db@1.27.0 (MIT)
 	THE SOFTWARE.
 	
 
-mime-types@2.1.15 (MIT)
+mime-types@2.1.17 (MIT)
 
 	(The MIT License)
 	
@@ -3047,7 +3103,7 @@ mime-types@2.1.15 (MIT)
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 
-mime@1.3.6 (MIT)
+mime@1.4.1 (MIT)
 
 	The MIT License (MIT)
 	
@@ -3243,7 +3299,7 @@ mv@2.1.1 (MIT)
 	SOFTWARE.
 	
 
-nan@2.6.2 (MIT)
+nan@2.7.0 (MIT)
 
 	The MIT License (MIT)
 	=====================
@@ -3313,7 +3369,7 @@ negotiator@0.6.1 (MIT)
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 
-node-fetch@1.7.1 (MIT)
+node-fetch@1.7.3 (MIT)
 
 	The MIT License (MIT)
 	
@@ -3620,39 +3676,30 @@ promise@7.3.1 (MIT)
 	THE SOFTWARE.
 	
 
-prop-types@15.5.10 (BSD-3-Clause)
+prop-types@15.6.0 (MIT)
 
-	BSD License
-	
-	For React software
+	MIT License
 	
 	Copyright (c) 2013-present, Facebook, Inc.
-	All rights reserved.
 	
-	Redistribution and use in source and binary forms, with or without modification,
-	are permitted provided that the following conditions are met:
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 	
-	 * Redistributions of source code must retain the above copyright notice, this
-	   list of conditions and the following disclaimer.
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
 	
-	 * Redistributions in binary form must reproduce the above copyright notice,
-	   this list of conditions and the following disclaimer in the documentation
-	   and/or other materials provided with the distribution.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
 	
-	 * Neither the name Facebook nor the names of its contributors may be used to
-	   endorse or promote products derived from this software without specific
-	   prior written permission.
-	
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-	ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-	ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 pseudomap@1.0.2 (ISC)
 
@@ -3952,7 +3999,7 @@ redux-observable@0.13.0 (MIT)
 	SOFTWARE.
 	
 
-redux@3.7.1 (MIT)
+redux@3.7.2 (MIT)
 
 	The MIT License (MIT)
 	
@@ -4101,7 +4148,7 @@ rsa-pem-from-mod-exp@0.8.4 (MIT)
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 
-rxjs@5.4.2 (Apache-2.0)
+rxjs@5.3.3 (Apache-2.0)
 
 	                               Apache License
 	                         Version 2.0, January 2004
@@ -4423,7 +4470,7 @@ semver@5.0.3 (ISC)
 	IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 	
 
-semver@5.3.0 (ISC)
+semver@5.4.1 (ISC)
 
 	The ISC License
 	
@@ -4550,7 +4597,7 @@ socks@1.1.10 (MIT)
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 
-source-map-support@0.4.15 (MIT)
+source-map-support@0.4.18 (MIT)
 
 	The MIT License (MIT)
 	
@@ -4575,7 +4622,7 @@ source-map-support@0.4.15 (MIT)
 	SOFTWARE.
 	
 
-source-map@0.5.6 (BSD-3-Clause)
+source-map@0.5.7 (BSD-3-Clause)
 
 	
 	Copyright (c) 2009-2011, Mozilla Foundation and contributors
@@ -4863,6 +4910,31 @@ symbol-observable@1.0.4 (MIT)
 	THE SOFTWARE.
 	
 
+test-value@2.1.0 (MIT)
+
+	The MIT License (MIT)
+	
+	Copyright (c) 2015-16 Lloyd Brookes <75pound@gmail.com>
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+	
+
 topo@1.1.0 (BSD-3-Clause)
 
 	Copyright (c) 2012-2014, Walmart and other contributors.
@@ -4894,7 +4966,7 @@ topo@1.1.0 (BSD-3-Clause)
 	
 	The complete list of contributors can be found at: https://github.com/hapijs/topo/graphs/contributors
 
-tough-cookie@2.3.2 (BSD-3-Clause)
+tough-cookie@2.3.3 (BSD-3-Clause)
 
 	Copyright (c) 2015, Salesforce.com, Inc.
 	All rights reserved.
@@ -5070,7 +5142,33 @@ tweetnacl@0.14.5 (Unlicense)
 	For more information, please refer to <http://unlicense.org>
 	
 
-ua-parser-js@0.7.13 ((GPL-2.0 OR MIT))
+typical@2.6.1 (MIT)
+
+	The MIT License (MIT)
+	
+	Copyright (c) 2014-17 Lloyd Brookes <75pound@gmail.com>
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+	
+	
+
+ua-parser-js@0.7.14 ((GPL-2.0 OR MIT))
 
 	LICENSE file does not exist
 
@@ -5186,29 +5284,6 @@ vasync@1.6.3 (MIT)
 verror@1.10.0 (MIT)
 
 	Copyright (c) 2016, Joyent, Inc. All rights reserved.
-	
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-	
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE
-	
-
-verror@1.3.6 (undefined)
-
-	Copyright (c) 2012, Joyent, Inc. All rights reserved.
 	
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
