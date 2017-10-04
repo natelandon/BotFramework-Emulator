@@ -386,6 +386,7 @@ function replaceEnvironmentVar(str, name, defaultValue = undefined) {
 function replacePackageEnvironmentVars(obj) {
     let str = JSON.stringify(obj);
     str = replaceEnvironmentVar(str, "ELECTRON_MIRROR");
+    str = replaceEnvironmentVar(str, "ELECTRON_VERSION", pjson.devDependencies["electron"]);
     return JSON.parse(str);
 }
 
