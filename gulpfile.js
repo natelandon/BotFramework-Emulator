@@ -140,7 +140,7 @@ gulp.task('package:windows:binaries', function() {
 
 //----------------------------------------------------------------------------
 gulp.task('package:windows:metadata', ['package:windows:binaries'], function() {
-    const releaseFilename = `botframework-emulator-setup-${pjson.version}.exe`;
+    const releaseFilename = `botframework-emulator-setup-${pjson.version}-win.exe`;
     const sha512 = hashFileAsync(`./dist/${releaseFilename}`);
     const sha2 = hashFileAsync(`./dist/${releaseFilename}`, 'sha256', 'hex');
     const releaseDate = new Date().toISOString();
@@ -340,7 +340,7 @@ function getFileList(platform, options = {}) {
     switch (platform) {
         case "windows":
             filelist.push(`${options.path}latest.yml`);
-            filelist.push(`${options.path}${options.basename}-setup-${options.version}.exe`);
+            filelist.push(`${options.path}${options.basename}-setup-${options.version}-win.exe`);
             filelist.push(`${options.path}${options.basename}-${options.version}-win.zip`);
             filelist.push(`${options.path}${options.basename}-${options.version}-ia32-win.zip`);
         break;

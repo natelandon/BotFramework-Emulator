@@ -3,6 +3,7 @@
         "include": "build/installer.nsh",
         "perMachine": false,
         "allowElevation": false,
-        "packElevateHelper": false
+        "packElevateHelper": false,
+        "artifactName": "${productName}-setup-${version}-${os}.${ext}"
     }
 }
