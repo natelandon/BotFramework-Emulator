@@ -134,7 +134,7 @@ gulp.task('package:windows:binaries', function() {
             .pipe(gulp.dest('./dist'))
     }).then(() => {
         // Wait for the files to be written to disk and closed.
-        return delay(2000);
+        return delay(10000);
     });
 });
 
@@ -180,7 +180,7 @@ gulp.task('package:squirrel.windows', function() {
             .pipe(gulp.dest('./dist'));
     }).then(() => {
         // Wait for the files to be written to disk and closed.
-        return delay(2000);
+        return delay(10000);
     });
 });
 
@@ -206,7 +206,7 @@ gulp.task('package:mac:binaries', function() {
             .pipe(gulp.dest('./dist'));
     }).then(() => {
         // Wait for the files to be written to disk and closed.
-        return delay(2000);
+        return delay(10000);
     });
 });
 
@@ -247,7 +247,7 @@ gulp.task('package:linux', function() {
             .pipe(gulp.dest('./dist'));
     }).then(() => {
         // Wait for the files to be written to disk and closed.
-        return delay(2000);
+        return delay(10000);
     });
 });
 
