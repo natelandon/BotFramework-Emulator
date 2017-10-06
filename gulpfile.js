@@ -1,6 +1,9 @@
 var gulp = require('gulp');
 var pjson = require('./package.json');
 
+const defaultElectronMirror = 'https://github.com/electron/electron/releases/download/v';
+const defaultElectronVersion = pjson.devDependencies["electron"];
+
 //============================================================================
 // BUILD
 //============================================================================
@@ -113,20 +116,25 @@ function writeJsonMetadataFile(releaseFilename, jsonFilename, releaseDate) {
 
 //----------------------------------------------------------------------------
 gulp.task('package:windows:binaries', function() {
+    var wait = require('gulp-wait');
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
         replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-windows.json'));
+    console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.WINDOWS.createTarget(["nsis", "zip"], builder.Arch.ia32, builder.Arch.x64),
         config
     }).then((filenames) => {
-        gulp.src(filenames)
+        return gulp.src(filenames)
             .pipe(rename(function (path) {
                 path.basename = setReleaseFilename(path.basename);
             }))
-            .pipe(gulp.dest('./dist'));
+            .pipe(gulp.dest('./dist'))
+    }).then(() => {
+        // Wait for the files to be written to disk and closed.
+        return delay(2000);
     });
 });
 
@@ -160,7 +168,7 @@ gulp.task('package:squirrel.windows', function() {
         targets: builder.Platform.WINDOWS.createTarget(["squirrel"], builder.Arch.x64),
         config
     }).then((filenames) => {
-        gulp.src(filenames)
+        return gulp.src(filenames)
             .pipe(rename(function (path) {
                 path.basename = setReleaseFilename(path.basename, {
                     lowerCase: false,
@@ -170,6 +178,9 @@ gulp.task('package:squirrel.windows', function() {
                 });
             }))
             .pipe(gulp.dest('./dist'));
+    }).then(() => {
+        // Wait for the files to be written to disk and closed.
+        return delay(2000);
     });
 });
 
@@ -183,15 +194,19 @@ gulp.task('package:mac:binaries', function() {
     const config = Object.assign({},
         replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-mac.json'));
+    console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.MAC.createTarget(["dmg", "zip"]),
         config
     }).then((filenames) => {
-        gulp.src(filenames)
+        return gulp.src(filenames)
             .pipe(rename(function (path) {
                 path.basename = setReleaseFilename(path.basename);
             }))
             .pipe(gulp.dest('./dist'));
+    }).then(() => {
+        // Wait for the files to be written to disk and closed.
+        return delay(2000);
     });
 });
 
@@ -220,15 +235,19 @@ gulp.task('package:linux', function() {
     const config = Object.assign({},
         replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-linux.json'));
+    console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.LINUX.createTarget(["deb", "AppImage"], builder.Arch.ia32, builder.Arch.x64),
         config
     }).then((filenames) => {
-        gulp.src(filenames)
+        return gulp.src(filenames)
             .pipe(rename(function (path) {
                 path.basename = setReleaseFilename(path.basename);
             }))
             .pipe(gulp.dest('./dist'));
+    }).then(() => {
+        // Wait for the files to be written to disk and closed.
+        return delay(2000);
     });
 });
 
@@ -375,18 +394,24 @@ function setReleaseFilename(filename, options = {}) {
 }
 
 //----------------------------------------------------------------------------
+function getEnvironmentVar(name, defaultValue = undefined)
+{
+    return (process.env[name] === undefined) ? defaultValue : process.env[name]
+}
+
+//----------------------------------------------------------------------------
 function replaceEnvironmentVar(str, name, defaultValue = undefined) {
-    if (process.env[name] === undefined && defaultValue === undefined)
+    let value = getEnvironmentVar(name, defaultValue);
+    if (value == undefined)
         throw new Error(`Required environment variable missing: ${name}`);
-    let value = (process.env[name] === undefined) ? defaultValue : process.env[name]
     return str.replace(new RegExp('\\${' + name + '}', 'g'), value);
 }
 
 //----------------------------------------------------------------------------
 function replacePackageEnvironmentVars(obj) {
     let str = JSON.stringify(obj);
-    str = replaceEnvironmentVar(str, "ELECTRON_MIRROR");
-    str = replaceEnvironmentVar(str, "ELECTRON_VERSION", pjson.devDependencies["electron"]);
+    str = replaceEnvironmentVar(str, "ELECTRON_MIRROR", defaultElectronMirror);
+    str = replaceEnvironmentVar(str, "ELECTRON_VERSION", defaultElectronVersion);
     return JSON.parse(str);
 }
 
@@ -395,6 +420,17 @@ function replacePublishEnvironmentVars(obj) {
     let str = JSON.stringify(obj);
     str = replaceEnvironmentVar(str, "GITHUB_TOKEN");
     return JSON.parse(str);
+}
+
+//----------------------------------------------------------------------------
+function getElectronMirrorUrl()
+{
+    return `${getEnvironmentVar("ELECTRON_MIRROR", defaultElectronMirror)}${getEnvironmentVar("ELECTRON_VERSION", defaultElectronVersion)}`;
+}
+
+//----------------------------------------------------------------------------
+function delay(ms, result) {
+    return new Promise((resolve, reject) => setTimeout(resolve, ms, result));
 }
 
 // EOF
