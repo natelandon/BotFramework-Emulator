@@ -5402,6 +5402,18 @@ xelement@1.0.16 (MIT)
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 
+xmldom@0.1.27 ([object Object])
+
+	You can choose any one of those:
+	
+	The MIT License (MIT):
+	
+	link:http://opensource.org/licenses/MIT
+	
+	LGPL:
+	http://www.gnu.org/licenses/lgpl.html
+	
+
 xregexp@2.0.0 (MIT)
 
 	LICENSE file does not exist
