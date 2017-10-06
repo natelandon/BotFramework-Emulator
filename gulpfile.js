@@ -164,6 +164,7 @@ gulp.task('package:squirrel.windows', function() {
     const config = Object.assign({},
         replacePackageEnvironmentVars(require('./build/build-common.json')),
         require('./build/build-squirrel.windows.json'));
+    console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.WINDOWS.createTarget(["squirrel"], builder.Arch.x64),
         config
