@@ -4,6 +4,6 @@
         "perMachine": false,
         "allowElevation": false,
         "packElevateHelper": false,
-        "artifactName": "${productName}-setup-${version}-${os}.${ext}"
+        "artifactName": "${productName}-Setup-${version}.${ext}"
     }
 }

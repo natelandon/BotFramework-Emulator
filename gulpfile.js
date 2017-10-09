@@ -120,8 +120,8 @@ gulp.task('package:windows:binaries', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
-        replacePackageEnvironmentVars(require('./build/build-common.json')),
-        require('./build/build-windows.json'));
+        replacePackageEnvironmentVars(require('./build/config/common.json')),
+        require('./build/config/windows.json'));
     console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.WINDOWS.createTarget(["nsis", "zip"], builder.Arch.ia32, builder.Arch.x64),
@@ -140,7 +140,7 @@ gulp.task('package:windows:binaries', function() {
 
 //----------------------------------------------------------------------------
 gulp.task('package:windows:metadata', ['package:windows:binaries'], function() {
-    const releaseFilename = `botframework-emulator-setup-${pjson.version}-win.exe`;
+    const releaseFilename = `botframework-emulator-Setup-${pjson.version}.exe`;
     const sha512 = hashFileAsync(`./dist/${releaseFilename}`);
     const sha2 = hashFileAsync(`./dist/${releaseFilename}`, 'sha256', 'hex');
     const releaseDate = new Date().toISOString();
@@ -162,8 +162,8 @@ gulp.task('package:squirrel.windows', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
-        replacePackageEnvironmentVars(require('./build/build-common.json')),
-        require('./build/build-squirrel.windows.json'));
+        replacePackageEnvironmentVars(require('./build/config/common.json')),
+        require('./build/config/squirrel.windows.json'));
     console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.WINDOWS.createTarget(["squirrel"], builder.Arch.x64),
@@ -193,8 +193,8 @@ gulp.task('package:mac:binaries', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
-        replacePackageEnvironmentVars(require('./build/build-common.json')),
-        require('./build/build-mac.json'));
+        replacePackageEnvironmentVars(require('./build/config/common.json')),
+        require('./build/config/mac.json'));
     console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.MAC.createTarget(["dmg", "zip"]),
@@ -234,8 +234,8 @@ gulp.task('package:linux', function() {
     var rename = require('gulp-rename');
     var builder = require('electron-builder');
     const config = Object.assign({},
-        replacePackageEnvironmentVars(require('./build/build-common.json')),
-        require('./build/build-linux.json'));
+        replacePackageEnvironmentVars(require('./build/config/common.json')),
+        require('./build/config/linux.json'));
     console.log(`Electron mirror: ${getElectronMirrorUrl()}`);
     return builder.build({
         targets: builder.Platform.LINUX.createTarget(["deb", "AppImage"], builder.Arch.ia32, builder.Arch.x64),
@@ -262,7 +262,7 @@ function publishFiles(filelist) {
     var CancellationToken = require('electron-builder-http/out/CancellationToken').CancellationToken;
     var GitHubPublisher = require('electron-publish/out/gitHubPublisher').GitHubPublisher;
     var MultiProgress = require('electron-publish/out/multiProgress').MultiProgress;
-    var publishConfig = replacePublishEnvironmentVars(require('./build/build-publish.json'));
+    var publishConfig = replacePublishEnvironmentVars(require('./build/config/publish.json'));
 
     const context = {
         cancellationToken: new CancellationToken(),
@@ -300,7 +300,7 @@ gulp.task('publish:windows', function () {
 
 //----------------------------------------------------------------------------
 gulp.task('publish:squirrel.windows', function () {
-    const basename = require('./build/build-squirrel.windows.json').squirrelWindows.name;
+    const basename = require('./build/config/squirrel.windows.json').squirrelWindows.name;
     const filelist = getFileList("squirrel.windows", {
         basename,
         path: './dist/'
@@ -340,14 +340,14 @@ function getFileList(platform, options = {}) {
     switch (platform) {
         case "windows":
             filelist.push(`${options.path}latest.yml`);
-            filelist.push(`${options.path}${options.basename}-setup-${options.version}-win.exe`);
+            filelist.push(`${options.path}${options.basename}-Setup-${options.version}.exe`);
             filelist.push(`${options.path}${options.basename}-${options.version}-win.zip`);
             filelist.push(`${options.path}${options.basename}-${options.version}-ia32-win.zip`);
         break;
 
         case "squirrel.windows":
             filelist.push(`${options.path}RELEASES`);
-            filelist.push(`${options.path}${options.basename}-Setup-${options.version}.exe`);
+            //filelist.push(`${options.path}${options.basename}-Setup-${options.version}.exe`);
             filelist.push(`${options.path}${options.basename}-${options.version}-full.nupkg`);
         break;
 
