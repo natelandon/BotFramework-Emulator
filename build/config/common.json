@@ -27,8 +27,7 @@
     ],
     "electronDownload": {
         "cache": "./cache",
-        "mirror": "${ELECTRON_MIRROR}",
-        "verifyChecksum": false
+        "mirror": "${ELECTRON_MIRROR}"
     },
     "electronVersion": "${ELECTRON_VERSION}",
     "publish": null
