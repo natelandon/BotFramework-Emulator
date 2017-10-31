@@ -44,6 +44,7 @@ import { WindowManager } from './windowManager';
 import { appUpdater } from './squirrelAppUpdater';
 import * as squirrel from './squirrelStartupEventHandler';
 import * as commandLine from './commandLine';
+import * as electronLocalShortcut from 'electron-localshortcut';
 
 (process as NodeJS.EventEmitter).on('uncaughtException', (error: Error) => {
     console.error(error);
@@ -196,6 +197,19 @@ const createMainWindow = () => {
             });
         }
     });
+    let registerHotkeys = (hotkeys, callback) => hotkeys.forEach(hotkey =>
+        electronLocalShortcut.register(mainWindow, hotkey, callback));
+
+    registerHotkeys(["F10", "Alt+F"],() => {
+        Emulator.send('open-menu');
+    });
+    registerHotkeys(["F5", "CmdOrCtrl+R"],() => {
+        Emulator.send('new-conversation');
+    });
+    registerHotkeys(["F6", "CmdOrCtrl+L"],() => {
+        Emulator.send('toggle-address-bar-focus');
+    });
+
     mainWindow.once('ready-to-show', () => {
         mainWindow.webContents.setZoomLevel(settings.windowState.zoomLevel);
         mainWindow.show();
