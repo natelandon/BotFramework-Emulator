@@ -2,10 +2,6 @@ import { autoUpdater as electronUpdater } from 'electron-updater';
 import { EventEmitter } from 'events';
 import * as path from 'path';
 
-interface ICheckForUpdateOptions {
-    autoDownload?: boolean
-}
-
 export enum EUpdateState {
     ApplicationIsUpToDate,
     CheckingForUpdate,
@@ -16,24 +12,29 @@ export enum EUpdateState {
 
 class AppUpdater extends EventEmitter {
     private state = EUpdateState.ApplicationIsUpToDate;
-    public allowPrerelease: boolean = false;
-    private options: ICheckForUpdateOptions;
+    private autoDownload: boolean;
+    private allowUpdateCheck: boolean;
+    private allowPrerelease: boolean;
 
     constructor() {
         super();
+
+        this.allowUpdateCheck = (process.argv.indexOf("--no-update") == -1);
+        this.allowPrerelease = (process.argv.indexOf('--prerelease') >= 0);
+
         electronUpdater.logger = null;
         if (process.env.NODE_ENV === "development") {
             electronUpdater.updateConfigPath = path.join(process.cwd(), 'app-update.yml');
         }
         electronUpdater.on('checking-for-update', (ev: Event, ...args: any[]) => {
             this.state = EUpdateState.CheckingForUpdate;
-            if (!this.options.autoDownload) {
+            if (!this.autoDownload) {
                 this.emit('checking-for-update', ...args);
             }
         });
         electronUpdater.on('update-available', (ev: Event, ...args: any[]) => {
             this.state = EUpdateState.UpdateIsAvailable;
-            if (!this.options.autoDownload) {
+            if (!this.autoDownload) {
                 this.emit('update-available', ...args);
             }
         });
@@ -54,35 +55,31 @@ class AppUpdater extends EventEmitter {
         });
     }
 
-    private _checkForUpdate(options: ICheckForUpdateOptions) {
-        if (electronUpdater) {
-            this.options = options;
-            electronUpdater.allowPrerelease = this.allowPrerelease;
-            electronUpdater.autoDownload = this.options.autoDownload;
-            electronUpdater.allowDowngrade = false;
-            electronUpdater.checkForUpdates();
+    private _checkForUpdate(autoDownload: boolean) {
+        if (this.allowUpdateCheck) {
+            if (electronUpdater) {
+                this.autoDownload = autoDownload;
+                electronUpdater.allowPrerelease = this.allowPrerelease;
+                electronUpdater.autoDownload = this.autoDownload;
+                electronUpdater.allowDowngrade = false;
+                electronUpdater.checkForUpdates();
+            }
         }
     }
 
-    checkForUpdate() {
+    public checkForUpdate() {
         if (this.state === EUpdateState.ApplicationIsUpToDate) {
-            const options = {
-                autoDownload: false
-            };
-            this._checkForUpdate(options);
+            this._checkForUpdate(false);
         }
     }
 
-    downloadUpdate() {
+    public downloadUpdate() {
         if (this.state === EUpdateState.UpdateIsAvailable) {
-            const options = {
-                autoDownload: true
-            };
-            this._checkForUpdate(options);
+            this._checkForUpdate(true);
         }
     }
 
-    quitAndInstall() {
+    public quitAndInstall() {
         if (this.state == EUpdateState.UpdateIsReadyToInstall) {
             if (electronUpdater) {
                 electronUpdater.quitAndInstall(true, true);
@@ -92,4 +89,3 @@ class AppUpdater extends EventEmitter {
 }
 
 export var appUpdater = new AppUpdater();
-

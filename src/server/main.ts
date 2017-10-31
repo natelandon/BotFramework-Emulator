@@ -40,8 +40,9 @@ import * as path from 'path';
 import * as log from './log';
 import { Emulator } from './emulator';
 import { WindowManager } from './windowManager';
+//import { appUpdater } from './appUpdater';
+import { appUpdater } from './squirrelAppUpdater';
 import * as squirrel from './squirrelStartupEventHandler';
-import { appUpdater } from './appUpdater';
 import * as commandLine from './commandLine';
 
 (process as NodeJS.EventEmitter).on('uncaughtException', (error: Error) => {
@@ -199,10 +200,12 @@ const createMainWindow = () => {
         mainWindow.webContents.setZoomLevel(settings.windowState.zoomLevel);
         mainWindow.show();
 
-        // Wait a few seconds then check for update.
-        setTimeout(() => {
-            appUpdater.checkForUpdate();
-        }, 2000);
+        if (process.env.NODE_ENV !== 'development') {
+            // Wait a few seconds then check for update.
+            setTimeout(() => {
+                appUpdater.checkForUpdate();
+            }, 2000);
+        }
     });
 
     let queryString = '';
