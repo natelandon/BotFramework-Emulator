@@ -71,7 +71,7 @@
     "vinyl-fs": "2.4.4"
   },
   "dependencies": {
-    "async": "2.1.4",
+    "async": "3.2.2",
     "base64url": "2.0.0",
     "botframework-webchat": "4.15.0",
     "command-line-args": "4.0.7",
